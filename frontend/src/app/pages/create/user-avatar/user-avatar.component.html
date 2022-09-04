@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Update Image</h1>
+<div mat-dialog-content>
+  <div>
+    <img #userAvatar  src="https://via.placeholder.com/300" class="mb-[20px] rounded-[4px] w-[150px] h-[150px]" alt="User Avatar">
+    <button class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full" (click)="captureUser()" type="button">Capture User</button>
+  </div>
+
+  <button class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full" type="button" (click)="changePicture()">
+    <span class="text-white font-light ml-[5px]">Submit</span>
+  </button>
+</div>

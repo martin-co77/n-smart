@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Create User Account</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm" (submit)="submitUser()">
+    <div class="flex flex-row justify-between">
+      <div>
+        <button class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full" (click)="captureUser()" type="button">Capture User</button>
+
+        <input type="text" required id="firstname" placeholder="First Name" formControlName="firstname">
+        <input type="text" required id="lastname" placeholder="Last Name" formControlName="lastname">
+      </div>
+
+      <div>
+        <img #userAvatar  src="https://via.placeholder.com/300" class="ml-[20px] rounded-[4px] w-[150px] h-[150px]" alt="User Avatar">
+      </div>
+    </div>
+    <input type="tel" required id="phone" placeholder="Phone" formControlName="phone">
+    <input type="email" required id="email" placeholder="Email" formControlName="email">
+    <button class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full" type="submit">
+      <span class="text-white font-light ml-[5px]">Done</span>
+    </button>
+  </form>
+
+</div>

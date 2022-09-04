@@ -1,0 +1,108 @@
+<div class="icon-card-container" *ngIf="dashStat.statistics">
+  <div class="icon-card">
+    <img class="main-icon" src="./assets/icon/interpreter_mode.svg" alt="Speech Command">
+    <span>Speak to command</span>
+    <img src="./assets/icon/play_circle.svg" alt="Play Icon" (click)="recognize_speech()">
+  </div>
+
+  <div class="icon-card">
+    <img class="main-icon" src="./assets/icon/warning.svg" alt="Warning Icon">
+    <div>
+      <span>Authorization</span>
+      <span>Login & Registration</span>
+    </div>
+
+    <div>
+      <div class="flex"><span class="text-[23px] font-bold text-[#07468C]">{{dashStat.statistics.success_auth}}</span> <img src="./assets/icon/done.svg" class="small-icon" alt="Done Icon"> </div>
+      <div class="flex"><span class="text-[23px] font-bold text-[#CC2314]">{{dashStat.statistics.failed_auth}}</span> <img src="./assets/icon/close.svg" class="small-icon" alt="Close Icon"> </div>
+    </div>
+  </div>
+
+  <div class="icon-card">
+    <img class="main-icon" src="./assets/icon/history.svg" alt="History">
+    <div>
+      <span>Registration</span>
+      <span>Last Updated</span>
+    </div>
+    <span>{{dashStat.statistics.created_at | dateFormat}}</span>
+  </div>
+
+  <div class="bg-white rounded-[4px] py-[23px] px-[34px] flex flex-col justify-center" (click)="changeUserImage()">
+    <img class="main-icon" src="./assets/icon/flip_camera_ios.png" alt="Camera Icon">
+  </div>
+</div>
+
+
+<div class="table-container">
+  <div class="max-w-[350px] w-full" *ngIf="dashStat.logins">
+    <h3>Recent Login</h3>
+
+    <table>
+      <tr *ngFor="let item of dashStat.logins">
+        <td>{{item.name}}</td>
+        <td>{{item.created_at | dateFormat}}</td>
+        <td>{{item.status === 1 ? 'Passed' : 'Failed' }}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="max-w-[745px] w-full" *ngIf="dashStat.users">
+    <h3>Recent Users</h3>
+    <table>
+      <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Last Login</th>
+        <th>Authorization</th>
+        <th>Alerts</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let item of dashStat.users">
+        <td>
+          <img [src]="item.picture | assetUrl" class="mr-[20px] w-[50px]" alt="User Avatar">
+        </td>
+        <td>{{item.name}}</td>
+        <td>{{item.last_login | dateFormat}}</td>
+        <td>{{item.authorizations}}</td>
+        <td>{{item.alerts}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+<div class="table-container">
+  <div class="max-w-[600px] w-full" *ngIf="dashStat.intruders">
+    <h3>Recent Intruder</h3>
+
+    <table>
+      <tr *ngFor="let item of dashStat.intruders">
+        <td>{{item.name}}</td>
+        <td>{{item.created_at | dateFormat}}</td>
+        <td class="flex">
+          <span>Intruder</span>
+          <img src="./assets/icon/warning.svg" alt="warning">
+        </td>
+        <td>{{item.destination}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="max-w-[492px] w-full" *ngIf="dashStat.webhooks">
+    <h3>Recent Webhook</h3>
+    <table>
+      <tr *ngFor="let item of dashStat.webhooks">
+        <td>{{item.origin}}</td>
+        <td>{{item.msg}}</td>
+        <td>{{item.destination}}</td>
+        <td>{{item.created_at | dateFormat}}</td>
+      </tr>
+    </table>
+  </div>
+
+</div>
+

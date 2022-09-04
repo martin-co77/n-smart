@@ -1,0 +1,29 @@
+<div class="bg-white py-[22px] px-[25px]">
+  <div class="flex flex-row mb-[20px]">
+    <button (click)="addWebHook()" class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] max-w-[145px] w-full">
+      <img src="./assets/icon/add.svg" class="mr-[5px]" alt="Create Icon">
+      <span class="text-white font-light ml-[5px]">Add</span>
+    </button>
+  </div>
+
+  <table datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+    <tr>
+      <th>Door</th>
+      <th>Created</th>
+      <th>URL</th>
+      <th>Event Type</th>
+      <th *ngIf="isSuper"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of webhooks">
+      <td>{{item.name}}</td>
+      <td>{{item.created_at | dateFormat}}</td>
+      <td>{{item.url}}</td>
+      <td>{{item.event}}</td>
+      <td *ngIf="isSuper"><button type="button" (click)="deleteWebHook(item.id)"><img src="./assets/icon/delete.svg" alt="delete"></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

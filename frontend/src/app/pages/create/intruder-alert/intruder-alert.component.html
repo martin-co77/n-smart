@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Create Intruder Alarm</h1>
+<div mat-dialog-content>
+  <form [formGroup]="alarmForm" (submit)="createAlert()">
+    <input formControlName="email" type="email" id="email" placeholder="E-mail (Optional)">
+    <input formControlName="phone" type="tel" id="phone" placeholder="Phone (optional)">
+    <button type="submit" class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full">
+      <span class="text-white font-light ml-[5px]">Done</span>
+    </button>
+  </form>
+
+</div>

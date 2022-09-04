@@ -1,0 +1,110 @@
+.main-container {
+  display: flex;
+  flex-direction: row;
+
+  .container-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    ul li {
+      a {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 20px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        border-bottom: 1px solid rgba(#008080, 0.1);
+
+        svg {
+          width: 18px;
+          margin-right: 12px;
+          fill: #008080
+        }
+
+        &.active {
+          background: #008080;
+          span {
+            color: #fff;
+          }
+          svg {
+            fill: #fff;
+          }
+        }
+      }
+    }
+
+    .account-section {
+      a {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        img {
+          border-radius: 50px;
+          height: 50px;
+          width: 50px;
+        }
+
+        div span {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .content-container {
+    flex-grow: 1;
+
+    .content-header {
+      background: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 28px;
+      height: 112px;
+
+      span {
+        color: #806D0D;
+      }
+
+      svg {
+        margin-right: 15px;
+        fill: #806D0D;
+      }
+    }
+
+    .content-body {
+      background: #F5F5F5;
+      height: calc(100vh - 224px);
+      padding: 12px 23px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+
+    .content-footer {
+      align-items: center;
+      display: flex;
+      height: 112px;
+      flex-direction: row;
+      justify-content: flex-end;
+      padding-right: 39px;
+      font-family: 'Roboto';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 23px;
+      background: #fff;
+
+      color: #806D0D;
+
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<div class="bg-white py-[22px] px-[25px]">
+  <button (click)="addUser()" class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full">
+    <img src="./assets/icon/add.svg" class="mr-[5px]" alt="Create Icon">
+    <span class="text-white font-light ml-[5px]">Add user</span>
+  </button>
+  <table datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Last Login</th>
+      <th>Authorization</th>
+      <th>Alerts</th>
+      <th *ngIf="isSuper"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of users">
+      <td><img [src]="item.picture | assetUrl" class="mr-[20px] rounded-[30px] w-[50px]" alt="User Avatar"></td>
+      <td>{{item.firstname}} {{item.lastname}}</td>
+      <td>{{item.last_login | dateFormat}}</td>
+      <td>{{item.authorizations}}</td>
+      <td>{{item.alerts}}</td>
+      <td *ngIf="isSuper"><button type="button" (click)="deleteUser(item.id)"><img src="./assets/icon/delete.svg" alt="delete"></button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

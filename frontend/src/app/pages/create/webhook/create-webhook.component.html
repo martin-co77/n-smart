@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Webhook</h1>
+<div mat-dialog-content>
+  <form [formGroup]="deviceForm" (submit)="createDevice()">
+    <select id="event" required formControlName="type">
+      <option value="speech">Speech</option>
+      <option value="intruder">Intruder</option>
+      <option value="authorize">Authorize</option>
+      <option value="motion">Motion</option>
+    </select>
+    <input required formControlName="name" type="text" id="name" placeholder="Also used for Speech Recognition">
+    <input required formControlName="url" type="url" id="url" placeholder="URL">
+    <button class="shadow-button flex flex-row justify-center items-center bg-[#CC8914] rounded-[5px] py-[6px] mb-[10px] max-w-[145px] w-full">
+      <span class="text-white font-light ml-[5px]">Done</span>
+    </button>
+  </form>
+</div>
